@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/brands-ajax.js',
+        'js/car-ajax.js',
         'js/editor-models-ajax.js',
         'js/models-ajax.js',
         'js/options-ajax.js'

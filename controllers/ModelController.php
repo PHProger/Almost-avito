@@ -1,11 +1,11 @@
 <?php
 
 namespace app\controllers;
+use Yii;
 use app\models\Brands;
 use app\models\Models;
 use yii\web\Controller;
 use yii\web\Response;
-use Yii;
 use yii\helpers\Json;
 
 

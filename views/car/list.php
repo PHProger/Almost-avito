@@ -13,11 +13,14 @@ $this->title = "Список объявлений";
         <th>Телефон</th>
     </tr>
     <?php foreach($cars as $car):?>
-        <tr>
+        <tr data-id="<?=$car->id?>">
             <td>
                 <a href="<?=Url::to(['car/card', 'id' => $car->id])?>">
                     <?= $car->model->brand->name ?> <?= $car->model->name ?>
                 </a>
+                <div>
+                    <a href="#!" class="delete-car" style="color:red">удалить</a>
+                </div>
             </td>
             <td>
                 <?php if(is_object($car->getImages()->one())):?>

@@ -56,7 +56,9 @@ class Cars extends ActiveRecord
            $image->deleteWithFiles();
        }
        
-       $this->delete();
+       if ($this->delete()) {
+           return true;
+       }
     }
 
 }
