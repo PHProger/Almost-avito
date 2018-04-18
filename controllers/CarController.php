@@ -40,7 +40,6 @@ class CarController extends Controller
         $car = $id == null? new Cars(): Cars::find()->where(['id' => $id])->one();
 
         $files = UploadedFile::getInstances(new Images(),'full');
-        
         if($car->load(Yii::$app->request->post(), 'Cars')){
             if($car->save()) {
                 if(isset(Yii::$app->request->post()['Cars']['options'])) {
@@ -48,10 +47,16 @@ class CarController extends Controller
                 } else {
                     $car->clearOptions();
                 }
-                foreach($files as $file) {
-                    Images::uploadFile($file, $car->id);
-                 }
-                 
+                if(!empty($files)) {
+                    foreach($car->images as $image) {
+                        $image->deleteWithFiles();
+                    }
+
+                    foreach($files as $file) {
+                        Images::uploadFile($file, $car->id);
+                     }
+                }
+        
                 return  $this->redirect(['car/edit', 'id' => $car->id]);
             }
         }
