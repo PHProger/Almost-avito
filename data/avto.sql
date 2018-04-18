@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 18 2018 г., 05:46
+-- Время создания: Апр 18 2018 г., 06:22
 -- Версия сервера: 10.1.29-MariaDB
 -- Версия PHP: 7.2.0
 
@@ -91,12 +91,12 @@ INSERT INTO `cars_options` (`id`, `car_id`, `option_id`) VALUES
 (99, 2, 2),
 (100, 2, 4),
 (101, 2, 9),
-(102, 10, 2),
-(103, 10, 3),
-(104, 10, 8),
-(105, 10, 9),
 (106, 14, 8),
-(107, 14, 9);
+(107, 14, 9),
+(116, 10, 2),
+(117, 10, 3),
+(118, 10, 8),
+(119, 10, 9);
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ INSERT INTO `images` (`id`, `full`, `medium`, `small`, `car_id`) VALUES
 (1, '/images/full/2_image-f54bfde8-1250x550.jpg', '/images/medium/2_image-f54bfde8-1250x550.jpg', '/images/small/2_image-f54bfde8-1250x550.jpg', 2),
 (2, '/images/full/2_mil_tt-rs-coupe-671.jpg', '/images/medium/2_mil_tt-rs-coupe-671.jpg', '/images/small/2_mil_tt-rs-coupe-671.jpg', 2),
 (7, '/images/full/2_2018-audi-tt-rs-side-angle-1500x1000.jpg', '/images/medium/2_2018-audi-tt-rs-side-angle-1500x1000.jpg', '/images/small/2_2018-audi-tt-rs-side-angle-1500x1000.jpg', 2),
-(11, '/images/full/10_aad3.jpg', '/images/medium/10_aad3.jpg', '/images/small/10_aad3.jpg', 10);
+(14, '/images/full/10_aad3.jpg', '/images/medium/10_aad3.jpg', '/images/small/10_aad3.jpg', 10);
 
 -- --------------------------------------------------------
 
@@ -264,13 +264,13 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT для таблицы `cars_options`
 --
 ALTER TABLE `cars_options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT для таблицы `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `models`
