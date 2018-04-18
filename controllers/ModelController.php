@@ -31,6 +31,7 @@ class ModelController extends Controller
     public function actionDestroy($model_id)
     {
         $model = Models::findOne($model_id);
+        
         foreach($model->cars as $car) {
             $car->deleteWithImages();
         }

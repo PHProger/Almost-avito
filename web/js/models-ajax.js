@@ -8,6 +8,7 @@ $( document ).ready(function() {
 $('#models-list-brand_id').on('change', function(){
     getModelsList($(this).val());
 });
+
 function getModelsList(brand_id) {
 
     $.get('/?r=model/get-brand-models', {brand_id: brand_id}, function (data) {
@@ -23,20 +24,20 @@ function getModelsList(brand_id) {
                 selected = "selected"
             }
 
-             $('.models-table tbody').append('<tr data-id="' + item.id + '"><td>' + item.id + '</td><td>' + item.name + '</td><td><button class="btn btn-danger delete-model">Удалить</button></tr>');
+             $('.models-table tbody').append('<tr data-id="' + item.id + '"><td>' + item.id + '</td><td>' + item.name + '</td><td><button class="btn btn-danger delete-model" onclick="deleteModel(' + item.id + ')">Удалить</button></tr>');
         });
     });
 }
 
-$('.delete-model').click(function(){
+function deleteModel(id){
     var question = "Вы действительно хотите удалить модель? Будут удалены все связанные объявления.";
-    var model_row = $(this).closest('tr');
+    var model_row = $(this);
     if(confirm(question)) {
-        $.get('/?r=model/destroy', {model_id:  model_row.data('id')}, function (data) {
+        $.get('/?r=model/destroy', {model_id:  id}, function (data) {
             responce = JSON.parse(data);
             if(responce == "success") {
                 model_row.fadeOut(500); 
             }
         });
     }
-});
+}

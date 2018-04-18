@@ -60,9 +60,11 @@ class Images extends ActiveRecord
 
     public function deleteWithFiles()
     {
-       @ unlink(Yii::getAlias('@web') . $this->full);
-       @ unlink(Yii::getAlias('@web') . $this->medium);
-       @ unlink(Yii::getAlias('@web') . $this->small);
+        $alias = Yii::getAlias('@web');
+       @ unlink($alias . $this->full);
+       @ unlink($alias . $this->medium);
+       @ unlink($alias . $this->small);
+
        $this->delete();
 
     }

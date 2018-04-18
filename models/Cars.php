@@ -55,6 +55,7 @@ class Cars extends ActiveRecord
        foreach($this->images as $image) {
            $image->deleteWithFiles();
        }
+       
        $this->delete();
     }
 
