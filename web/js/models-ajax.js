@@ -41,3 +41,16 @@ function deleteModel(id){
         });
     }
 }
+
+$('.toggle-model-modal').click(function(){
+    $('#add-model-modal').modal('show');
+});
+
+$('.submit-new-model').click(function(){
+    $.get('/?r=model/create', {name: $('#new-model-name').val(), brand_id: $('#models-list-brand_id').val()}, function (data) {
+        model = JSON.parse(data);
+        $('.models-table tbody').append('<tr data-id="' + model.id + '"><td>' + model.id + '</td><td>' + model.name + '</td><td><button class="btn btn-danger delete-model" onclick="deleteModel(' + model.id + ')">Удалить</button></tr>');
+        $('#new-model-name').val(null);
+        $('#add-model-modal').modal('hide');
+    });
+});
