@@ -24,13 +24,6 @@ $this->title = $car->model ? "Редактирование " . $car->model->bran
                     <?= $form->field($car, 'mileage')->label("Пробег")?>
                     <?= $form->field($car, 'price')->label("Цена")?>
                     <?= $form->field($car, 'phone')->label("Телефон")?>
-                    <!-- <div class="form-group">
-                        <label for="images">Изображения</label>
-                        <input type="file" class="form-control" id="images" name="Cars[images][]" multiple >
-                    </div> -->
-                    <?= $form->field(new Images(), 'full[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label("Изображения")?>
-                    
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
         </div>
         <div class="col-xs-4">
                     <h2>Опции</h2>
@@ -48,6 +41,21 @@ $this->title = $car->model ? "Редактирование " . $car->model->bran
                         <?php endforeach;?>
                     </ul>
         </div>    
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="row">
+                <?php foreach($car->images as $image):?>
+                    <div class="col-xs-4">
+                    <img src="<?=$image->small?>" alt="" class="img-responsive">
+                    </div>
+                <?php endforeach;?>
+                </div>
+            </div>
+        <div class="col-xs-8 col-xs-offset-2">
+            <?= $form->field(new Images(), 'full[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label("Изображения")?>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
     </div>
     <?php ActiveForm::end()?>
 </div>
