@@ -6,6 +6,14 @@ use yii\helpers\ArrayHelper;
 
 class Cars extends ActiveRecord
 {
+    public function rules()
+    {
+        return [
+            [['mileage'], 'safe'],
+            [['price', 'phone', 'model_id'], 'required']
+        ];
+    }
+
     public function getModel()
     {
         return $this->hasOne(Models::className(), ['id' => 'model_id']);
@@ -42,11 +50,12 @@ class Cars extends ActiveRecord
         CarsOptions::deleteAll(['car_id' => $this->id]);
     }
 
-    public function rules()
+    public function deleteWithImages()
     {
-        return [
-            [['mileage'], 'safe'],
-            [['price', 'phone', 'model_id'], 'required']
-        ];
+       foreach($this->images as $image) {
+           $image->deleteWithFiles();
+       }
+       $this->delete();
     }
+
 }

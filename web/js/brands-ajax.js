@@ -12,7 +12,7 @@ $('.submit-new-brand').click(function(){
 });
 
 $('.delete-brand').click(function(){
-    var question = "Вы действительно хотите удалить бренд? Будут удалены все связанные марки и объявления?";
+    var question = "Вы действительно хотите удалить Марку? Будут удалены все связанные модели и объявляения и объявления?";
     var brand_row = $(this).closest('tr');
     if(confirm(question)) {
         $.get('/?r=brand/destroy', {brand_id:  brand_row.data('id')}, function (data) {

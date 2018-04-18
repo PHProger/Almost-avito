@@ -57,4 +57,13 @@ class Images extends ActiveRecord
         
         return '/'. $public_path;
     }
+
+    public function deleteWithFiles()
+    {
+       @ unlink(Yii::getAlias('@web') . $this->full);
+       @ unlink(Yii::getAlias('@web') . $this->medium);
+       @ unlink(Yii::getAlias('@web') . $this->small);
+       $this->delete();
+
+    }
 }

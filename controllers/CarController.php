@@ -19,16 +19,6 @@ use yii\data\Pagination;
 class CarController extends Controller
 {
 
-    public function actionIndex()
-    {
-        $query = Cars::find();
-        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 5]);
-        $cars = $query->offset($pages->offset)
-        ->limit($pages->limit)
-        ->all();
-        return $this->render('list', compact('cars', 'pages'));
-    }
-
     public function actionCard($id = null)
     {
         $car = Cars::find()->where(['id' => $id])->one();
