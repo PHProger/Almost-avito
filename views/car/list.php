@@ -10,7 +10,7 @@ $this->title = "Список объявлений";
         <th>Название</th>
         <th>Миниатюра</th>
         <th>Цена</th>
-        <th>Телефон</th>
+        <!-- <th>Телефон</th> -->
     </tr>
     <?php foreach($cars as $car):?>
         <tr data-id="<?=$car->id?>">
@@ -19,7 +19,7 @@ $this->title = "Список объявлений";
                     <?= $car->model->brand->name ?> <?= $car->model->name ?>
                 </a>
                 <div>
-                    <a href="#!" class="delete-car" style="color:red">удалить</a>
+                    <a href="#!" class="delete-car" style="color:red">удалить</a> <a href="<?=Url::to(['car/edit', 'id' => $car->id])?>">редактировать</a>
                 </div>
             </td>
             <td>
@@ -30,7 +30,7 @@ $this->title = "Список объявлений";
                 <?php endif;?>
             </td>
             <td><?= $car->price ?></td>
-            <td><?= $car->phone ?></td>
+            <!-- <td><?= $car->phone ?></td> -->
         </tr>
     <?php endforeach;?>
     </table>
