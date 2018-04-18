@@ -1,6 +1,9 @@
+<?php
+    $this->title = "Управление моделями"
+?>
 <div class="container">
     <div class="row">
-            <div class="col-xs-6 col-xs-offset-3">
+        <div class="col-xs-6 col-xs-offset-3">
             <div class="row">
                 <div class="form-group field-models-brand_id">
                 <label class="control-label" for="models-brand_id">Марка</label>
@@ -12,7 +15,10 @@
                 <br>
                 <button class="btn btn-primary toggle-model-modal">Добавить марку</button>
             </div>
-            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">       
             <table class="table table-hover models-table">
                 <thead>
                     <tr>
@@ -23,7 +29,8 @@
                 </thead>
                 <tbody>
                 </tbody>
-            </table>    
+            </table>  
+        </div>      
     </div>        
 </div>
 

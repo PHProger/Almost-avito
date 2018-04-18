@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-            <button class="btn btn-primary toggle-brand-modal">Добавить марку</button>
+            <div style="margin-bottom:10px">
+                <button class="btn btn-primary toggle-brand-modal">Добавить марку</button>
+            </div>
             <table class="table table-hover brands-table">
                 <tr>
                     <th>ID</th>

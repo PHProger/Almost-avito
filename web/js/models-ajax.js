@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
-    if($('#models-list_brand_id').length > 0) {
+    if($('#models-list-brand_id').length > 0) {
         getModelsList($('#models-list-brand_id').val());
     }
 });
